@@ -1,4 +1,4 @@
-version: '3.0'
+version: "3.0"
 services:
   python-app:
     image: ${DOCKER_USR}/osssp_week11
