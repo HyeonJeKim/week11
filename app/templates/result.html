@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="/delete">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>학번</th>
+                    <th>전공</th>
+                    <th>이메일</th>
+                    <th>성별</th>
+                    <th>프로그래밍 언어</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in db %}
+                <tr>
+                    <td>{{ result['name'] }}</td>
+                    <td>{{ result['StudentNumber'] }}</td>
+                    <td>{{ result['major'] }}</td>
+                    <td>{{ result['email'] }}</td>
+                    <td>{{ result['gender'] if result['gender'] else '' }}</td>
+                    <td>
+                        {% if result['Languages'] %}
+                            {% for language in result['Languages'] %}
+                                {{ language }}
+                            {% endfor %}
+                        {% else %}
+                        <!-- No languages selected-->
+                        {% endif %}
+                    </td>
+                    <td><input type="checkbox" name="delete" value="{{ loop.index }}"  ></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <button type="submit" name="action_btn" value="delete_row" style="float:left">Delete row</button> 
+    </form>
+    <button onclick="location.href='/'" style="float:left" >Add row</button>
+    <br>
+    <button onclick="location.href='/home'">Home</button>
+</body>
+</html>
