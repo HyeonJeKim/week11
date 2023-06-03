@@ -1,7 +1,7 @@
 version: "3.0"
 services:
   flask:
-    image: baranjeigh/osssp_week11
+    image: ${DOCKER_USR}/osssp_week11
     build: .
     ports:
       - "80:80/tcp"
