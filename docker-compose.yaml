@@ -1,5 +1,9 @@
 version: "3.0"
 services:
-  python-app:
+  flask:
     image: ${DOCKER_USR}/osssp_week11
     build: .
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp

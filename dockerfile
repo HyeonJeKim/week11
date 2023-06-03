@@ -1,7 +1,7 @@
-FROM python:3
+FROM tiangolo/uwsgi-nginx-flask:latest
 
-WORKDIR /usr/src/app
+# WORKDIR /usr/src/app
 
 COPY . .
 
-CMD [ "python" , "./main.py"]
+# CMD [ "python" , "./main.py"]
